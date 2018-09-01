@@ -9,7 +9,6 @@ app.set('port', (process.env.PORT || 8080));
 app.use(bodyParser.json());
 
 app.post('/', function(req, res) {
-  res.sendStatus('post test');
 	res.sendStatus(200);
 });
 
