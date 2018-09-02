@@ -14,7 +14,21 @@ const requestTime = (req, res, next) => {
 }
 
 app.post('/', function(req, res) {
-  let responseText = 'Current Time: ' + new Date();
+  function formatTime(date) {
+    var hours = date.getHours(),
+    minutes = date.getMinutes(),
+    ampm = hours >= 12 ? 'PM' : 'AM';
+  
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+  
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    var strTime = hours + ':' + minutes + ampm;
+  
+    return strTime;
+  }
+
+  let responseText = 'Current Time: ' + formatTime(new Date());
   res.send(responseText);
   res.sendStatus(200);
 });
@@ -22,14 +36,24 @@ app.post('/', function(req, res) {
 app.use(requestTime);
 
 app.get('/', (req, res) => {
-  let responseText = '<b>(GET)Requested: </b>' + req.requestTime;
-  res.send('GET response');
+  function formatTime(date) {
+    var hours = date.getHours(),
+    minutes = date.getMinutes(),
+    ampm = hours >= 12 ? 'PM' : 'AM';
+  
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+  
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    var strTime = hours + ':' + minutes + ampm;
+  
+    return strTime;
+  }
+
+  let responseText = '(GET) Current Time: ' + formatTime(new Date());
+  res.send(responseText);
   res.sendStatus(200);
 });
-
-// app.get('/', function(req, res) {
-// 	res.send('app.get');
-// });
 
 app.listen(port, () => {
   console.log('running on http://localhost:' + port);
