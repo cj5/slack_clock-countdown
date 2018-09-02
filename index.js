@@ -15,7 +15,7 @@ const requestTime = (req, res, next) => {
 
 app.post('/', function(req, res) {
   function formatTime(date) {
-    var hours = date.getHours(),
+    let hours = date.getHours(),
     minutes = date.getMinutes(),
     ampm = hours >= 12 ? 'PM' : 'AM';
   
@@ -23,7 +23,7 @@ app.post('/', function(req, res) {
     hours = hours ? hours : 12; // the hour '0' should be '12'
   
     minutes = minutes < 10 ? '0'+minutes : minutes;
-    var strTime = hours + ':' + minutes + ampm;
+    let strTime = hours + ':' + minutes + + ' ' + ampm;
   
     return strTime;
   }
@@ -37,7 +37,7 @@ app.use(requestTime);
 
 app.get('/', (req, res) => {
   function formatTime(date) {
-    var hours = date.getHours(),
+    let hours = date.getHours(),
     minutes = date.getMinutes(),
     ampm = hours >= 12 ? 'PM' : 'AM';
   
@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
     hours = hours ? hours : 12; // the hour '0' should be '12'
   
     minutes = minutes < 10 ? '0'+minutes : minutes;
-    var strTime = hours + ':' + minutes + ampm;
+    let strTime = hours + ':' + minutes + ampm;
   
     return strTime;
   }
