@@ -8,20 +8,23 @@ app.set('port', (process.env.PORT || 8080));
 
 app.use(bodyParser.json());
 
-app.post('/', function(req, res) {
-	res.sendStatus(200);
-});
-
 const requestTime = (req, res, next) => {
   req.requestTime = new Date();
   next();
 }
 
+app.post('/', function(req, res) {
+  let responseText = '<b>(POST)Requested: </b>' + req.requestTime;
+  res.send(responseText);
+  res.sendStatus(200);
+});
+
 app.use(requestTime);
 
 app.get('/', (req, res) => {
-  let responseText = '<b>Requested at: </b>' + req.requestTime;
-  res.send(responseText);
+  let responseText = '<b>(GET)Requested: </b>' + req.requestTime;
+  res.send('GET response');
+  res.sendStatus(200);
 });
 
 // app.get('/', function(req, res) {
