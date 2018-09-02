@@ -14,7 +14,7 @@ const requestTime = (req, res, next) => {
 }
 
 app.post('/', function(req, res) {
-  let responseText = '<b>(POST)Requested: </b>' + req.requestTime;
+  let responseText = 'Current Time: ' + new Date();
   res.send(responseText);
   res.sendStatus(200);
 });
