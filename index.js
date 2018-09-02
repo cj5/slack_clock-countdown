@@ -23,12 +23,12 @@ app.post('/', function(req, res) {
     hours = hours ? hours : 12; // the hour '0' should be '12'
   
     minutes = minutes < 10 ? '0'+minutes : minutes;
-    let strTime = hours + ':' + minutes + ' ' + ampm + ' 🐿 ';
+    let strTime = hours + ':' + minutes + ' ' + ampm;
   
     return strTime;
   }
 
-  let responseText = 'Current Time: ' + formatTime(new Date());
+  let responseText = 'BOINNG! BOINNG!<br />The current time is: ' + formatTime(new Date()) + '!';
   res.send(responseText);
   res.sendStatus(200);
 });
@@ -45,12 +45,12 @@ app.get('/', (req, res) => {
     hours = hours ? hours : 12; // the hour '0' should be '12'
   
     minutes = minutes < 10 ? '0'+minutes : minutes;
-    let strTime = hours + ':' + minutes + ' ' + ampm + ' 🐿 ';
+    let strTime = hours + ':' + minutes + ' ' + ampm;
   
     return strTime;
   }
 
-  let responseText = '(GET) Current Time: ' + formatTime(new Date());
+  let responseText = '(GET)BOINNG! BOINNG!<br />The current time is: ' + formatTime(new Date()) + '!';
   res.send(responseText);
   res.sendStatus(200);
 });
