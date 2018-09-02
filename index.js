@@ -28,7 +28,7 @@ app.post('/', function(req, res) {
     return strTime;
   }
 
-  let responseText = 'BOINNG! BOINNG!"\n"The current time is: ' + formatTime(new Date()) + '!';
+  let responseText = 'BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!';
   res.send(responseText);
   res.sendStatus(200);
 });
@@ -50,7 +50,7 @@ app.get('/', (req, res) => {
     return strTime;
   }
 
-  let responseText = '(GET)BOINNG! BOINNG!"\n"The current time is: ' + formatTime(new Date()) + '!';
+  let responseText = '(GET)BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!';
   res.send(responseText);
   res.sendStatus(200);
 });
