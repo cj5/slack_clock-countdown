@@ -29,7 +29,7 @@ app.post('/', function(req, res) {
   }
 
   let responseText = {
-    'response_type': 'in _channel',
+    'response_type': 'in_channel',
     'text': 'BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!'
   }
   res.send(responseText.text);
@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
   }
 
   let responseText = {
-    'response_type': 'in _channel',
+    'response_type': 'in_channel',
     'text': '(GET)BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!'
   }
   res.send(responseText.text);
