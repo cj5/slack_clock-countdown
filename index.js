@@ -26,7 +26,7 @@ app.post('/', (req, res) => {
   const response = {
     statusCode: 200,
     response_type: 'in_channel',
-    text: 'It\'s *' + countdown + '* until *' + timeString + '*!'
+    text: 'There\'s *' + countdown + '* until *' + timeString + '*!'
   }
   res.send(response);
 });
@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
 
   let responseText = {
     'response_type': 'in_channel',
-    'text': 'It\'s ' + countdown + ' until ' + timeString + '!'
+    'text': 'There\'s ' + countdown + ' until ' + timeString + '!'
   }
   res.send(responseText.text);  
   res.sendStatus(200);
