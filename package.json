@@ -18,7 +18,8 @@
   "homepage": "https://github.com/cj5/slack_clock-countdown#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "moment": "^2.22.2"
   },
   "engines": {
     "node": "8.9.2"

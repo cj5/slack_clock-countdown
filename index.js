@@ -3,66 +3,47 @@ const app = express();
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 8080;
 const slack = require('./slack.js');
+const moment = require('moment');
 
 app.set('port', (process.env.PORT || 8080));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended': 'true'}));
 
-const requestTime = (req, res, next) => {
-  req.requestTime = new Date();
-  next();
-}
+// const requestTime = (req, res, next) => {
+//   req.requestTime = new Date();
+//   next();
+// }
 
 app.post('/', (req, res) => {
-  const formatTime = (date) => {
-    let hours = date.getHours(),
-    minutes = date.getMinutes(),
-    ampm = hours >= 12 ? 'PM' : 'AM';
-  
-    hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
-  
-    minutes = minutes < 10 ? '0'+minutes : minutes;
-    let strTime = hours + ':' + minutes + ' ' + ampm;
-  
-    return strTime;
-  }
 
-  const time = formatTime(new Date());
+  let requestTime = moment(new Date()).format('H:mm')
+  let timeString = req.body.text;
+  let momentObject = moment(timeString, 'H:mm a');
+  let momentString = momentObject.format('H:mm');
+  let countdown = moment(momentString, 'H:mm').fromNow();
 
   const response = {
     statusCode: 200,
     response_type: 'in_channel',
-    text: '_{ math }_ hours and _{ math }_ minutes until ' + req.body.text + '\n\n' + JSON.stringify(req.body)
-    // JSON.stringify(req.body)
-    // text: 'BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!',
+    text: 'It\'s *' + countdown + ' until ' + timeString + '!'
   }
   res.send(response);
-  // res.sendStatus(200);
 });
 
-app.use(requestTime);
+// app.use(requestTime);
 
 app.get('/', (req, res) => {
-  function formatTime(date) {
-    let hours = date.getHours(),
-    minutes = date.getMinutes(),
-    ampm = hours >= 12 ? 'PM' : 'AM';
-  
-    hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
-  
-    minutes = minutes < 10 ? '0'+minutes : minutes;
-    let strTime = hours + ':' + minutes + ' ' + ampm;
-  
-    return strTime;
-  }
+
+  let requestTime = moment(new Date()).format('H:mm')
+  let timeString = '6:00 pm';
+  let momentObject = moment(timeString, 'H:mm a');
+  let momentString = momentObject.format('H:mm');
+  let countdown = moment(momentString, 'H:mm').fromNow('ss');
 
   let responseText = {
     'response_type': 'in_channel',
-    // 'text': '(GET)BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!'
-    'text': req.body.action
+    'text': 'It\'s ' + countdown + ' until ' + timeString + '!'
   }
   res.send(responseText.text);  
   res.sendStatus(200);
