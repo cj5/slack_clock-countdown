@@ -39,7 +39,7 @@ app.post('/', (req, res) => {
   const response = {
     statusCode: 200,
     response_type: 'in_channel',
-    text: JSON.stringify(req.body+\n\n+req.body.text),
+    text: JSON.stringify(req.body) + '\n\n' + JSON.stringify(req.body.text),
     // text: 'BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!',
   }
   res.send(response);
