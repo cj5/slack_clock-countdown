@@ -7,7 +7,7 @@ const slack = require('./slack.js');
 app.set('port', (process.env.PORT || 8080));
 
 app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({'extended': 'true'}));
+app.use(bodyParser.urlencoded({'extended': 'true'}));
 
 const requestTime = (req, res, next) => {
   req.requestTime = new Date();
