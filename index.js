@@ -30,10 +30,11 @@ app.post('/', function(req, res) {
 
   let responseText = {
     'response_type': 'in_channel',
-    'text': 'BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!'
+    'text': req.event_time + req.team_id
+    // 'text': 'BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!'
   }
-  res.send(responseText);
   res.sendStatus(200);
+  res.send(responseText);  
 });
 
 app.use(requestTime);
@@ -57,8 +58,8 @@ app.get('/', (req, res) => {
     'response_type': 'in_channel',
     'text': '(GET)BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!'
   }
-  res.send(responseText.text);
   res.sendStatus(200);
+  res.send(responseText.text);  
 });
 
 app.listen(port, () => {
