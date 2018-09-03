@@ -32,7 +32,7 @@ app.post('/', function(req, res) {
     'response_type': 'in_channel',
     'text': 'BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!'
   }
-  res.send(responseText.text);
+  res.send(responseText);
   res.sendStatus(200);
 });
 
