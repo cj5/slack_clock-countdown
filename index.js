@@ -7,6 +7,7 @@ const slack = require('./slack.js');
 app.set('port', (process.env.PORT || 8080));
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({'extended': 'true'}));
 
 const requestTime = (req, res, next) => {
   req.requestTime = new Date();
@@ -38,7 +39,8 @@ app.post('/', (req, res) => {
   const response = {
     statusCode: 200,
     response_type: 'in_channel',
-    text: 'BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!'
+    text: JSON.stringify(req.body),
+    // text: 'BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!',
   }
   res.send(response);
   // res.sendStatus(200);
