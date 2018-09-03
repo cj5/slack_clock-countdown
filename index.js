@@ -28,8 +28,11 @@ app.post('/', function(req, res) {
     return strTime;
   }
 
-  let responseText = 'BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!';
-  res.send(responseText);
+  let responseText = {
+    'response_type': 'in _channel',
+    'text': '(GET)BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!'
+  }
+  res.send(responseText.text);
   res.sendStatus(200);
 });
 
@@ -50,8 +53,11 @@ app.get('/', (req, res) => {
     return strTime;
   }
 
-  let responseText = '(GET)BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!';
-  res.send(responseText);
+  let responseText = {
+    'response_type': 'in _channel',
+    'text': '(GET)BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!'
+  }
+  res.send(responseText.text);
   res.sendStatus(200);
 });
 
