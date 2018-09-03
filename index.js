@@ -29,17 +29,13 @@ app.post('/', (req, res) => {
     return strTime;
   }
 
-  // const response = {
-  //   statusCode: 200,
-  //   body: JSON.stringify({
-  //     message: 'clock countdown was called',
-  //     input: req,
-  //   })
-  // };
+  const time = formatTime(new Date());
+
   const response = {
     statusCode: 200,
     response_type: 'in_channel',
-    text: JSON.stringify(req.body) + '\n\n' + req.body.text,
+    text: '*math* hours and *math* minutes until ' + req.body.text
+    // JSON.stringify(req.body)
     // text: 'BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!',
   }
   res.send(response);
