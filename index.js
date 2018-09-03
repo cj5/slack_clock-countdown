@@ -21,7 +21,7 @@ app.post('/', (req, res) => {
   let timeString = req.body.text;
   let momentObject = moment(timeString, 'H:mm a');
   let momentString = momentObject.format('H:mm');
-  let countdown = moment(momentString, 'H:mm').fromNow();
+  let countdown = moment(momentString, 'H:mm').fromNow('mm');
 
   const response = {
     statusCode: 200,
@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
   let timeString = '6:00 pm';
   let momentObject = moment(timeString, 'H:mm a');
   let momentString = momentObject.format('H:mm');
-  let countdown = moment(momentString, 'H:mm').fromNow('ss');
+  let countdown = moment(momentString, 'H:mm').fromNow('mm');
 
   let responseText = {
     'response_type': 'in_channel',
