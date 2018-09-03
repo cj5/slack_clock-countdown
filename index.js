@@ -40,7 +40,7 @@ app.post('/', function(req, res) {
   //   'text': 'BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!'
   // }
   res.send(response);
-  res.sendStatus(200);
+  // res.sendStatus(200);
 });
 
 app.use(requestTime);
