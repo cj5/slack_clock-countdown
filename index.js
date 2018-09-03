@@ -31,7 +31,8 @@ app.post('/', (req, res) => {
   const response = {
     statusCode: 200,
     body: JSON.stringify({
-      message: 'clock countdown was called'
+      message: 'clock countdown was called',
+      input: req,
     })
   };
   // let response = {
