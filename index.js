@@ -13,8 +13,8 @@ const requestTime = (req, res, next) => {
   next();
 }
 
-app.post('/', function(req, res) {
-  function formatTime(date) {
+app.post('/', (req, res) => {
+  const formatTime = (date) => {
     let hours = date.getHours(),
     minutes = date.getMinutes(),
     ampm = hours >= 12 ? 'PM' : 'AM';
@@ -31,8 +31,7 @@ app.post('/', function(req, res) {
   const response = {
     statusCode: 200,
     body: JSON.stringify({
-      message: 'clock countdown was called',
-      input: req
+      message: 'clock countdown was called'
     })
   };
   // let response = {
