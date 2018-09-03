@@ -28,17 +28,18 @@ app.post('/', (req, res) => {
     return strTime;
   }
 
+  // const response = {
+  //   statusCode: 200,
+  //   body: JSON.stringify({
+  //     message: 'clock countdown was called',
+  //     input: req,
+  //   })
+  // };
   const response = {
     statusCode: 200,
-    body: JSON.stringify({
-      message: 'clock countdown was called',
-      input: req,
-    })
-  };
-  // let response = {
-  //   'response_type': 'in_channel',
-  //   'text': 'BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!'
-  // }
+    response_type: 'in_channel',
+    text: 'BOINNG! BOINNG!\nThe current time is: ' + formatTime(new Date()) + '!'
+  }
   res.send(response);
   // res.sendStatus(200);
 });
