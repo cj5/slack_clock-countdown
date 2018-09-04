@@ -39,9 +39,9 @@ app.post('/', (req, res) => {
     s = (s < 10) ? + s : s;
   
     if (h === 0) {
-      return '*' + m + '*' + 'm ' + '*' + s + '*' + 's';
+      return '*' + m + '*\u000b' + 'm ' + '*' + s + '*\u000b' + 's';
     } else {
-      return h + 'h ' + m + 'm ' + s + 's';
+      return '*'+h+'*\u000b' + 'h ' + '*'+m+'*\u000b' + 'm ' + '*' + '*'+s+'*\u000b' + 's';
     }
   }
 
