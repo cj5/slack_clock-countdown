@@ -39,11 +39,11 @@ app.post('/', (req, res) => {
     s = (s < 10) ? + s : s;
   
     if (h === 0 && m !== 0) {
-      return '*'+m+'*\u200a' + 'm & ' + '*'+s+'*\u200a' + 's';
+      return '*'+m+'*\u200a' + 'm & ' + '*'+s+'*\u200a' + 's' + ' :hourglass_flowing_sand:';
     } else if (h === 0 && m === 0) {
-      return '*'+s+'*\u200a' + 's';
+      return '*'+s+'*\u200a' + 's' + ' :hourglass_flowing_sand:';
     } else {
-      return '*'+h+'*\u200a' + 'h, ' + '*'+m+'*\u200a' + 'm & ' + '*'+s+'*\u200a' + 's';
+      return '*'+h+'*\u200a' + 'h, ' + '*'+m+'*\u200a' + 'm & ' + '*'+s+'*\u200a' + 's' + ' :hourglass_flowing_sand:';
     }
   }
 
