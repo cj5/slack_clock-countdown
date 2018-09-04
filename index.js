@@ -24,7 +24,7 @@ app.post('/', (req, res) => {
   // let countdown = moment(momentString, 'H:mm').fromNow('mm');
 
   let date = moment(new Date()).format('YYYY-MM-DD');
-  let timeString = '11:20PM';
+  let timeString = req.body.text;
   let momentObject = moment(timeString, 'H:mm a');
   let momentString = date + ' ' + momentObject.format('H:mm');
 
