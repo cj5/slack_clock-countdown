@@ -39,9 +39,11 @@ app.post('/', (req, res) => {
     s = (s < 10) ? + s : s;
   
     if (h === 0) {
-      return '*'+m+'*\u200a' + 'm:\u200a' + '*'+s+'*\u200a' + 's';
+      return '*'+m+'*\u200a' + 'm & ' + '*'+s+'*\u200a' + 's';
+    } else if (h === 0 && m === 0) {
+      return '*'+s+'*\u200a' + 's';
     } else {
-      return '*'+h+'*\u200a' + 'h:\u200a' + '*'+m+'*\u200a' + 'm:\u200a' + '*'+s+'*\u200a' + 's';
+      return '*'+h+'*\u200a' + 'h, ' + '*'+m+'*\u200a' + 'm & ' + '*'+s+'*\u200a' + 's';
     }
   }
 
@@ -51,7 +53,7 @@ app.post('/', (req, res) => {
 
   let countdown = '_' + timeString + '_' + ' is in— ' + msToTime(diff);
   if (isNaN(diff)) {
-    countdown = 'Please type time in this format— "12:00pm"';
+    countdown = req.body.text + 'is an invalid command. Please type a time in this format— "12:00pm"';
   }
 
   const response = {
