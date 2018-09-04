@@ -49,7 +49,7 @@ app.post('/', (req, res) => {
   const d2 = new Date(momentString);
   const diff = Math.abs(d1 - d2);
 
-  let countdown = '_' + timeString + '_' + ' is in ' + msToTime(diff);
+  let countdown = '_' + timeString + '_' + ' is in — ' + msToTime(diff);
   if (isNaN(diff)) {
     countdown = 'Please type time in this format— "12:00PM"';
   }
