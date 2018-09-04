@@ -40,7 +40,7 @@ app.post('/', (req, res) => {
   
     if (h === 0) {
       return '*'+m+'*\u200a' + 'm & ' + '*'+s+'*\u200a' + 's';
-    } else if (h === 0 && m === 0) {
+    } else if (m === 0) {
       return '*'+s+'*\u200a' + 's';
     } else {
       return '*'+h+'*\u200a' + 'h, ' + '*'+m+'*\u200a' + 'm & ' + '*'+s+'*\u200a' + 's';
@@ -53,7 +53,7 @@ app.post('/', (req, res) => {
 
   let countdown = '_' + timeString + '_' + ' is in— ' + msToTime(diff);
   if (isNaN(diff)) {
-    countdown = req.body.text + 'is an invalid command. Please type a time in this format— "12:00pm"';
+    countdown = ':no_entry_sign: ' + '_' + req.body.text + '_ is an invalid command. Please type a time in this format— "12:00pm"';
   }
 
   const response = {
